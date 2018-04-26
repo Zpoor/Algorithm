@@ -1,4 +1,4 @@
-package cn.zpoor.pat;
+package cn.zpoor.pat.second;
 
 import java.util.Scanner;
 
