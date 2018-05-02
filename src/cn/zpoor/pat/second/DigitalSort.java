@@ -46,19 +46,19 @@ public class DigitalSort {
 				int curNum = Integer.parseInt(strs[i]);
 				if (curNum % 5 == 0 && (curNum & 1) == 0) {//被5整除，并且是偶数，位运算这么牛逼的吗？
 					A1 += curNum;
-				} else if (curNum % 5 == 1) {
+				} else if (curNum % 5 == 1) {//除5余1，交错求和
 					if ((cnt2 & 1) == 1) {
 						A2 -= curNum;
 					} else {
 						A2 += curNum;
 					}
 					cnt2++;
-				} else if (curNum % 5 == 2) {
+				} else if (curNum % 5 == 2) {//除5余2的数字个数
 					A3++;
-				} else if (curNum % 5 == 3) {
+				} else if (curNum % 5 == 3) {//除5余3的总数
 					A4 += curNum;
 					cnt4++;
-				} else if (curNum % 5 == 4) {
+				} else if (curNum % 5 == 4) {//除5余4中的最大值
 					A5 = Math.max(A5, curNum);
 				}
 			}
@@ -68,6 +68,7 @@ public class DigitalSort {
 			} else {
 				res = String.format("%d %d %d %c %d", A1, A2, A3, 'N', A5);
 			}
+			//这段正则表达式很强，我还看不懂
 			System.out.println(res.replaceAll("(^0{1})|(0{1}$)", "N").replaceAll("\\s{1}0{1}\\s{1}", " N "));
 		}
 	}
